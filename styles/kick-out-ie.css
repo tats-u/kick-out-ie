@@ -1,0 +1,52 @@
+#kickoutie-popup {
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+  color: #222;
+  margin: auto;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 75%;
+  text-align: center;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+}
+
+#kickoutie-popup-title {
+  font-family: sans-serif;
+  color: red;
+}
+
+#kickoutie-wrapper {
+  position: fixed;
+  z-index: 999;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: #000;
+}
+
+/* clearfix */
+.kickoutie-clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .kickoutie-clearfix {
+  zoom: 1;
+} /* IE6 */
+*:first-child + html .kickoutie-clearfix {
+  zoom: 1;
+} /* IE7 */
