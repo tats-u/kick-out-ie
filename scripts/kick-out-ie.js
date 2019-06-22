@@ -15,6 +15,61 @@
   }
 
   /**
+   * Returns translated text from key.
+   *
+   * @param {string} key Key of translated string.
+   * @returns {string} Translted text.
+   */
+  function tr(key) {
+    this.translation = {
+      default: {
+        this_page_doesnt_support_ie:
+          "This page doesn't support Internet Explorer!",
+        install_a_modern_browser:
+          "Install any of the following modern browsers to show this page correctly.",
+        click_to_open_by_edge:
+          "Or click the following icon to open this page in Edge right now!",
+      },
+      // Japanese bad with computers persist in Internet Explorer.
+      ja: {
+        this_page_doesnt_support_ie:
+          "Internet Explorerは、本ページのサポート対象外です",
+        install_a_modern_browser:
+          "このページを正しく表示するには、以下のブラウザのいずれかをインストールしてください",
+        click_to_open_by_edge:
+          "もしくは、以下のアイコンをクリックし、Edgeで開いてください",
+      },
+      // Korean and traditional Chinese may be needed. (PRs are welcome)
+    };
+
+    // IE doesn't have `navigator.languages`
+    if (
+      navigator.language in this.translation &&
+      key in this.translation[navigator.language]
+    ) {
+      return this.translation[navigator.language][key];
+    }
+    // ja-JP => [ja, JP] => ja
+    var pure_lang = navigator.language.split("-")[0];
+    if (pure_lang in this.translation && key in this.translation[pure_lang]) {
+      return this.translation[pure_lang][key];
+    }
+    if (key in this.translation.default) return translation.default[key];
+    return key;
+  }
+
+  /**
+   * Returns created text node with translated text.
+   *
+   * Equals to `document.createTextNode(tr(key))`..
+   * @param {string} key Key of translated text.
+   * @returns {Text} Text node with translated text.
+   */
+  function txt(key) {
+    return document.createTextNode(tr(key));
+  }
+
+  /**
    * Create an element `<name attr0=val0 attr1=val1 ...></name>`.
    *
    * `tag("name", [["attr0", "val0"], ["attr1", "val1"], ...])`
@@ -44,9 +99,7 @@
   document.body
     .appendChild(popup)
     .appendChild(tag("h3", { id: "kickoutie-popup-title" }))
-    .appendChild(
-      document.createTextNode("This page doesn't support Internet Explorer!")
-    );
+    .appendChild(txt("this_page_doesnt_support_ie"));
   popup.appendChild(
     tag("img", {
       src:
@@ -56,13 +109,7 @@
       height: "143",
     })
   );
-  popup
-    .appendChild(tag("p"))
-    .appendChild(
-      document.createTextNode(
-        "Install any of the following modern browsers to show this page correctly."
-      )
-    );
+  popup.appendChild(tag("p")).appendChild(txt("install_a_modern_browser"));
   popup
     .appendChild(browsers_parent)
     .appendChild(tag("a", { href: "https://www.mozilla.org/firefox/new/" }))
@@ -85,13 +132,7 @@
     );
   // Windows 10+
   if (navigator.userAgent.match("Windows NT 1[0-9]\\.")) {
-    popup
-      .appendChild(tag("p"))
-      .appendChild(
-        document.createTextNode(
-          "Or click the following icon to open this page in Edge right now!"
-        )
-      );
+    popup.appendChild(tag("p")).appendChild(txt("click_to_open_by_edge"));
     popup
       .appendChild(tag("p"))
       .appendChild(tag("a", { href: "microsoft-edge:" + location.href }))
