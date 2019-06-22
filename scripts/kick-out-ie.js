@@ -19,7 +19,7 @@ if (
      */
     function tr(key) {
       this.translation = {
-        default: {
+        en: {
           this_page_doesnt_support_ie:
             "This page doesn't support Internet Explorer!",
           install_a_modern_browser:
@@ -50,7 +50,7 @@ if (
       if (pure_lang in this.translation && key in this.translation[pure_lang]) {
         return this.translation[pure_lang][key];
       }
-      if (key in this.translation.default) return translation.default[key];
+      if (key in this.translation.en) return translation.en[key];
       return key;
     }
 
@@ -78,7 +78,8 @@ if (
       // Boolean([]) = true
       if (attrs_list) {
         for (attr_name in attrs_list) {
-          tag_.setAttribute(attr_name, attrs_list[attr_name]);
+          // IE <= 8 don't permit "class" as property name
+          tag_.setAttribute(attr_name == "cls" ? "classs" : attr_name, attrs_list[attr_name]);
         }
       }
       return tag_;
@@ -87,7 +88,7 @@ if (
     var popup = tag("div", { id: "kickoutie-popup" });
 
     var browsers_parent = tag("p", {
-      class: "kickoutie-clearfix",
+      cls: "kickoutie-clearfix",
       id: "kickoutie-browsers-parent",
     });
 
