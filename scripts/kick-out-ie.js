@@ -8,7 +8,7 @@ if (
     window.addEventListener
       ? window.addEventListener("load", f, false)
       : window.attachEvent
-      ? window.attachEvent("onload", f)
+      ? window.attachEvent("onload", f) // IE >= 6 & <= 8
       : (window.onload = f);
   })(function() {
     /**
@@ -40,14 +40,13 @@ if (
       };
 
       // IE doesn't have `navigator.languages`
-      if (
-        navigator.language in this.translation &&
-        key in this.translation[navigator.language]
-      ) {
-        return this.translation[navigator.language][key];
+      // IE 10- doesn't have `navigator.language`
+      var full_lang = navigator.language || navigator.userLanguage;
+      if (full_lang in this.translation && key in this.translation[full_lang]) {
+        return this.translation[full_lang][key];
       }
       // ja-JP => [ja, JP] => ja
-      var pure_lang = navigator.language.split("-")[0];
+      var pure_lang = full_lang.split("-")[0];
       if (pure_lang in this.translation && key in this.translation[pure_lang]) {
         return this.translation[pure_lang][key];
       }
