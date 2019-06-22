@@ -128,7 +128,7 @@ if (
         })
       );
     // Windows 10+
-    if (navigator.userAgent.match("Windows NT 1[0-9]\\.")) {
+    if (navigator.userAgent.match("Windows NT [1-9][0-9]+\\.")) {
       popup.appendChild(tag("p")).appendChild(txt("click_to_open_by_edge"));
       popup
         .appendChild(tag("p"))
