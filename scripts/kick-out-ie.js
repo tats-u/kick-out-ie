@@ -79,7 +79,10 @@ if (
       if (attrs_list) {
         for (attr_name in attrs_list) {
           // IE <= 8 don't permit "class" as property name
-          tag_.setAttribute(attr_name == "cls" ? "classs" : attr_name, attrs_list[attr_name]);
+          tag_.setAttribute(
+            attr_name == "cls" ? "class" : attr_name,
+            attrs_list[attr_name]
+          );
         }
       }
       return tag_;
