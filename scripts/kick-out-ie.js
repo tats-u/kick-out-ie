@@ -74,29 +74,34 @@
         width: "128",
       })
     );
-  browsers_parent.appendChild(tag("a", {href: "https://www.google.com/chrome/"})).appendChild(
-    tag("img", {
-      src: "https://www.google.com/chrome/static/images/chrome-logo.svg",
-      height: "128",
-      width: "128",
-    })
-  );
+  browsers_parent
+    .appendChild(tag("a", { href: "https://www.google.com/chrome/" }))
+    .appendChild(
+      tag("img", {
+        src: "https://www.google.com/chrome/static/images/chrome-logo.svg",
+        height: "128",
+        width: "128",
+      })
+    );
   // Windows 10+
   if (navigator.userAgent.match("Windows NT 1[0-9]\\.")) {
     popup
       .appendChild(tag("p"))
       .appendChild(
         document.createTextNode(
-          "Or copy the URL of this page, open Edge, and paste the address bar of it!"
+          "Or click the following icon to open this page in Edge right now!"
         )
       );
-    popup.appendChild(tag("p")).appendChild(
-      tag("img", {
-        src:
-          "https://upload.wikimedia.org/wikipedia/commons/d/d6/Microsoft_Edge_logo.svg",
-        height: "128",
-        width: "128",
-      })
-    );
+    popup
+      .appendChild(tag("p"))
+      .appendChild(tag("a", { href: "microsoft-edge:" + location.href }))
+      .appendChild(
+        tag("img", {
+          src:
+            "https://upload.wikimedia.org/wikipedia/commons/d/d6/Microsoft_Edge_logo.svg",
+          height: "128",
+          width: "128",
+        })
+      );
   }
 });
