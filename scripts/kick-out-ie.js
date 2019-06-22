@@ -6,7 +6,7 @@ if (
 ) {
   (function(f) {
     window.addEventListener
-      ? window.addEventListener("load", f, false)
+      ? window.addEventListener("DOMContentLoaded", f, false)
       : window.attachEvent
       ? window.attachEvent("onload", f) // IE >= 6 & <= 8
       : (window.onload = f);
