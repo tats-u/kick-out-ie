@@ -40,7 +40,7 @@ if (
       };
 
       // IE doesn't have `navigator.languages`
-      // IE 10- doesn't have `navigator.language`
+      // IE <= 10 doesn't have `navigator.language`
       var full_lang = navigator.language || navigator.userLanguage;
       if (full_lang in this.translation && key in this.translation[full_lang]) {
         return this.translation[full_lang][key];
