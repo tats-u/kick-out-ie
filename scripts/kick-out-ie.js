@@ -88,6 +88,17 @@ if (
       return tag_;
     }
 
+    /**
+     * Returns URL of proper type of image
+     *
+     * @param {string} svg URL of SVG image (IE >= 9)
+     * @param {string} png URL of PNG alternative image (IE <= 8)
+     */
+    function svg_or_png(svg, png) {
+      // window.addEventListener is supported only in IE9+
+      return window.addEventListener ? svg : png;
+    }
+
     var popup = tag("div", { id: "kickoutie-popup" });
 
     var browsers_parent = tag("p", {
@@ -116,7 +127,11 @@ if (
       .appendChild(
         tag("img", {
           src:
-            "https://upload.wikimedia.org/wikipedia/commons/6/67/Firefox_Logo%2C_2017.svg",
+            // IE <= 8 don't support SVG
+            svg_or_png(
+              "https://upload.wikimedia.org/wikipedia/commons/6/67/Firefox_Logo%2C_2017.svg",
+              "https://www.mozilla.org/media/img/logos/firefox/logo-quantum-high-res.cfd87a8f62ae.png"
+            ),
           height: "128",
           width: "128",
         })
@@ -125,7 +140,10 @@ if (
       .appendChild(tag("a", { href: "https://www.google.com/chrome/" }))
       .appendChild(
         tag("img", {
-          src: "https://www.google.com/chrome/static/images/chrome-logo.svg",
+          src: svg_or_png(
+            "https://www.google.com/chrome/static/images/chrome-logo.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/120px-Google_Chrome_icon_%28September_2014%29.svg.png"
+          ),
           height: "128",
           width: "128",
         })
@@ -138,8 +156,10 @@ if (
         .appendChild(tag("a", { href: "microsoft-edge:" + location.href }))
         .appendChild(
           tag("img", {
-            src:
+            src: svg_or_png(
               "https://upload.wikimedia.org/wikipedia/commons/d/d6/Microsoft_Edge_logo.svg",
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Microsoft_Edge_logo.svg/200px-Microsoft_Edge_logo.svg.png"
+            ),
             height: "128",
             width: "128",
           })
