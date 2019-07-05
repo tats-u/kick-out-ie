@@ -1,4 +1,7 @@
 
+*.min.js
+*.min.css
+
 ### Node
 
 # Logs

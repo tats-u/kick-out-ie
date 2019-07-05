@@ -1,0 +1,25 @@
+{
+  "name": "kick-out-ie",
+  "version": "0.1.0",
+  "description": "Stop visitors from using IE",
+  "main": "index.js",
+  "repository": "https://github.com/tats-u/kick-out-ie",
+  "author": "Tatsunori Uchino",
+  "license": "MIT",
+  "scripts": {
+    "minify": "npm-run-all minify:js minify:css",
+    "minify:js": "node-minify -i ./scripts/kick-out-ie.js -o ./scripts/kick-out-ie.min.js",
+    "minify:css": "node-minify -i ./styles/kick-out-ie.css -o ./styles/kick-out-ie.min.css -c clean-css",
+    "clean-minified": "npm-run-all clean-minified:js",
+    "clean-minified:js": "rimraf ./scripts/*.min.js",
+    "clean-minified:css": "rimraf ./styles/*.min.css"
+  },
+  "devDependencies": {
+    "@node-minify/clean-css": "^4.0.5",
+    "@node-minify/cli": "^4.1.0",
+    "@node-minify/uglify-js": "^4.0.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3"
+  }
+}
