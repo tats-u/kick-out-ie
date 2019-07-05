@@ -114,10 +114,10 @@ if (
     popup.appendChild(
       tag("img", {
         src:
-          "https://consumerist.com/consumermediallc.files.wordpress.com/2016/01/msie_nomore.jpg",
+          "https://user-images.githubusercontent.com/12870451/60697504-9d1c6180-9f25-11e9-9dbb-9e0529c500d5.png",
         alt: "No Internet Explorer",
-        width: "255",
-        height: "143",
+        width: "128",
+        height: "128",
       })
     );
     popup.appendChild(tag("p")).appendChild(txt("install_a_modern_browser"));
