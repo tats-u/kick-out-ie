@@ -2,6 +2,8 @@
 
 Languages: [🇯🇵](./README.ja.md)
 
+[![Build Status](https://travis-ci.org/tats-u/kick-out-ie.svg?branch=master)](https://travis-ci.org/tats-u/kick-out-ie)
+
 ![no_ie](https://user-images.githubusercontent.com/12870451/60697504-9d1c6180-9f25-11e9-9dbb-9e0529c500d5.png)
 
 
