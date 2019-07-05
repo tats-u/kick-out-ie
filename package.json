@@ -12,7 +12,9 @@
     "minify:css": "node-minify -i ./styles/kick-out-ie.css -o ./styles/kick-out-ie.min.css -c clean-css",
     "clean-minified": "npm-run-all clean-minified:js",
     "clean-minified:js": "rimraf ./scripts/*.min.js",
-    "clean-minified:css": "rimraf ./styles/*.min.css"
+    "clean-minified:css": "rimraf ./styles/*.min.css",
+    "format": "prettier --write ./scripts/kick-out-ie.js ./styles/kick-out-ie.css",
+    "check": "prettier -c ./scripts/kick-out-ie.js ./styles/kick-out-ie.css"
   },
   "devDependencies": {
     "@node-minify/clean-css": "^4.0.5",
