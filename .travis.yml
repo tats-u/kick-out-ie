@@ -10,7 +10,7 @@ script:
   - yarn run check
   - yarn run minify
 deploy:
-  provider: release
+  provider: releases
   api_key:
     secure: "k8+OFizdefviQNchbDV5YzD35haewe51coSUKz1de7gfrXbAUdtpt1A0mxwyI1Ef+MS3S0AptQ+Zg01aQiKGFhbquP4DgB4ZEaFE4DcsFoNx70E2e5CwXygx9xKakepDEgYjDNtop+T69CKo/BMOdgDOYo/zWPmAi9Szl+NxZEiY2Ii7uGtMtYpsvV2vnA1BTAopPhbCEj3Hdawl7LWowBZQlzwE4Cj7kGPCG9eWhd0ZLSrOXlJiJqcv/Fl3/eGaKEtSCq1PHX5Efk0K5hTTyZq0cVlJXBq4FKnKGz++5wEn87T8EHfgQNN8ZTwizXnDWqiPWu2mmdjqyDn6mvcpCbJijG86xQkWp1Z4ZW1UDzPXiZ+mVhHspxursEzaLxdrhS/JAYuGd7VWAcYPTbSsGc/GXlWo1tjGZaco1dDQAUs4XKPMjo9qp9osYjRtbqfpnI69B9VwsixWkBXA2LIAZLka//QC2HBjOKLExW90hG8lnYEy3kKC5NNKLfP3a+Xt04M6hovBzxaCU8hTWYi3Y5Hb+0v+6NtDZUxlGZYrydDW9zCS11hhur16TSPrn7QkUToEg5D7FBBgU+uOypZ5r1p6Gfl2OIcIhWUweo0WelVTaBSG0NLls6WBKasVMaFAI3Tty2nhe2TC6B6FYCCVy/X7MSFPF8P8of1veCW+q+c="
   file_glob: true
