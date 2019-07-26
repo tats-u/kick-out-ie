@@ -17,7 +17,7 @@ deploy:
   skip_cleanup: true
   file:
     - ./scripts/*.min.js
-    - ./scripts/*.min.css
+    - ./styles/*.min.css
   on:
     tags: true
     condition: "$TRAVIS_TAG =~ ^v.*$"
