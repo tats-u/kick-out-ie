@@ -15,6 +15,8 @@ Microsoft deprecated Internet Explorer. ([Relational link](https://www.engadget.
 
 This plugin allows you to show a dialog **only** to persuade visitors using IE to browse your site by another (modern) browser.  This dialog can't be closed and encourage you to reflect modern technologies that don't support IE.
 
+<img src="https://user-images.githubusercontent.com/12870451/62096811-dc896400-b2bf-11e9-9146-5beca73b03c3.png" alt="Dialog appearing only if IE used" height="400">
+
 ## Supported IE Version
 
 8–11
